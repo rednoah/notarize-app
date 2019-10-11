@@ -2,7 +2,7 @@
 Linear notarize and staple for build tools.
 
 1. Run `altool --notarize-app`
-2. Run `altool --notarization-info` periodically until notarization is complete
+2. Run `altool --notarization-info` periodically and `sleep` until notarization is complete
 3. Run `stapler staple`
 
 
