@@ -32,8 +32,8 @@ if xcrun altool --notarize-app --primary-bundle-id "$BUNDLE_ID" --asc-provider "
 
 			# once notarization is complete, run stapler and exit
 			if ! grep -q "Status: in progress" "$NOTARIZE_INFO_LOG"; then
-				xcrun stapler staple "$BUNDLE_PKG"
-				exit "$?"
+				xcrun stapler staple "$BUNDLE_PKG" && xcrun stapler validate "$BUNDLE_PKG"
+				exit $?
 			fi
 		else
 			cat "$NOTARIZE_INFO_LOG" 1>&2
