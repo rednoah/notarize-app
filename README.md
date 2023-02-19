@@ -18,8 +18,10 @@ notarize-app 'AB0CDEF2GF' 'user@example.net' '@keychain:notarize-app' 'net.examp
 
 ## Xcode 13 and later
 The newly introduced `notarytool` is suitable for automated build systems:
-```
+```sh
+# Enter Apple ID
 xcrun notarytool store-credentials 'notarize-app' --apple-id 'user@example.net' --team-id 'AB0CDEF2GF'
+# Notarize and Staple
 xcrun notarytool submit --wait --keychain-profile 'notarize-app' *.pkg
 xcrun stapler staple *.pkg
 ```
